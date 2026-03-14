@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 
 
 
-import"./Day9-ScientificCalculator.sol";
+import "./Day9-ScientificCalculator.sol";
 
 contract Calculator{
 
@@ -57,7 +57,7 @@ contract Calculator{
 
     //低级调用
     function calculateSquareRoot(uint256 number)public returns (uint256){
-        require(number >=0,"Cannot calculate square root of negative nmber");
+        require(number >=0,"Cannot calculate square root of negative number");
         bytes memory data= abi.encodeWithSignature("squareRoot(uint256)",number);
         (bool success,bytes memory returnData)=scientificCalculatorAddress.call(data);
         require (success, "External call failed");
